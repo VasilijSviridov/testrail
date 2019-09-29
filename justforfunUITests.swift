@@ -1,3 +1,8 @@
+var runId = 0
+  var localApi = ObjectAPI(username: "*", secret: "*", hostname: "testrail.io", port: 443, scheme: "https")
+  var localAPI = API(username: "*", secret: "*", hostname: "testrail.io", port: 443, scheme: "https")
+    
+
 func createRun() {
         
         let runN = NewRun(assignedtoId: 2, caseIds: nil, description: nil, includeAll: false, milestoneId: nil, name: "Auto in progressSSSS", suiteId: nil)
@@ -60,3 +65,8 @@ func createRun() {
             localApi.closeRun(self.runId) { _ in return }
         }
     }
+	
+	struct CaseUpdate:Codable {
+	    var case_ids: [Int]
+	}
+	
